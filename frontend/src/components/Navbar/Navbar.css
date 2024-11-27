@@ -59,8 +59,27 @@ position: relative;
 
 .navbar-profile{
     position: relative;
+    display: flex; 
+    align-items: center;
+    gap: 10px;
 
 }
+
+.profile-initial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: grey; 
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase; 
+    cursor: pointer;
+}
+
 .navbar-profile-dropdown{
     position: absolute;
     display: none;

@@ -32,14 +32,16 @@
     padding: 8px 8px;
     font-size: 12px;
 }
-.cart-items-remove-icon{
+
+.cart-items-remove-icon {
     cursor: pointer;
 }
+
 .cart-bottom {
     margin-top: 80px;
     display: flex;
     justify-content: space-between;
-    gap: max(12vw,20px);
+    gap: max(12vw, 20px);
 }
 
 .cart-total {
@@ -59,23 +61,54 @@
     margin: 10px 0px;
 }
 
-.cart-total button {
+/* Buttons Row */
+.cart-buttons-row {
+    display: flex;
+    gap: 10px; /* Adds spacing between the buttons */
+    margin-top: 10px;
+}
+
+/* Checkout Button */
+.checkout-button {
     border: none;
     color: white;
     background-color: #336600;
-    width: max(15vw,200px);
+    width: max(15vw, 200px);
     padding: 12px 0px;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #285400; /* Darker green for hover */
+}
+
+/* Discard Cart Button */
+.discard-cart-button {
+    border: none;
+    color: white;
+    background-color: #FF4D4D; /* Red color */
+    width: max(15vw, 200px);
+    padding: 12px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.discard-cart-button:hover {
+    background-color: #E63939; /* Darker red for hover */
 }
 
 .cart-promocode {
     flex: 1;
 }
-.cart-promocode p{
+
+.cart-promocode p {
     color: #555555;
 }
-.cart-promocode-input{
+
+.cart-promocode-input {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -83,14 +116,16 @@
     background-color: #eaeaea;
     border-radius: 4px;
 }
-.cart-promocode-input input{
+
+.cart-promocode-input input {
     background: transparent;
     border: none;
     outline: none;
     padding-left: 10px;
 }
-.cart-promocode-input button{
-    width: max(10vw,150px);
+
+.cart-promocode-input button {
+    width: max(10vw, 150px);
     padding: 12px 5px;
     background-color: black;
     border: none;
@@ -98,11 +133,13 @@
     border-radius: 4px;
 }
 
-@media(max-width:750px) {
+/* Responsive Design */
+@media (max-width: 750px) {
     .cart-bottom {
         flex-direction: column-reverse;
     }
-    .cart-promocode{
+
+    .cart-promocode {
         justify-content: start;
     }
 }

@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 
 const LoginPopup = ({ setShowLogin }) => {
 
-    const { setToken, url,loadCartData } = useContext(StoreContext)
+    const { setToken, url, loadCartData } = useContext(StoreContext)
     const [currState, setCurrState] = useState("Sign Up");
 
     const [data, setData] = useState({
@@ -36,7 +36,8 @@ const LoginPopup = ({ setShowLogin }) => {
         if (response.data.success) {
             setToken(response.data.token)
             localStorage.setItem("token", response.data.token)
-            loadCartData({token:response.data.token})
+            localStorage.setItem("name", response.data.name)
+            loadCartData({ token: response.data.token })
             setShowLogin(false)
         }
         else {
@@ -57,7 +58,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 </div>
                 <button>{currState === "Login" ? "Login" : "Create account"}</button>
                 <div className="login-popup-condition">
-                    <input type="checkbox" name="" id="" required/>
+                    <input type="checkbox" name="" id="" required />
                     <p>By continuing, i agree to the terms of use & privacy policy.</p>
                 </div>
                 {currState === "Login"

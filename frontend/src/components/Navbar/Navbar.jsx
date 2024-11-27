@@ -7,7 +7,8 @@ import { StoreContext } from '../../Context/StoreContext'
 const Navbar = ({ setShowLogin }) => {
 
   const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount, token ,setToken } = useContext(StoreContext);
+  const [userName, setUserName] = useState("");
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const logout = () => {
@@ -15,6 +16,13 @@ const Navbar = ({ setShowLogin }) => {
     setToken("");
     navigate('/')
   }
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setUserName(storedName);
+    }
+  }, []);
 
   return (
     <div className='navbar'>
@@ -31,11 +39,14 @@ const Navbar = ({ setShowLogin }) => {
         </Link>
         {!token ? <button onClick={() => setShowLogin(true)}>sign in</button>
           : <div className='navbar-profile'>
-            <img src={assets.profile_icon} alt="" />
+            <div className="profile-initial">
+              {userName.charAt(0).toUpperCase()}
+            </div>
+            {/* <img src={assets.profile_icon} alt="" /> */}
             <ul className='navbar-profile-dropdown'>
-              <li onClick={()=>navigate('/myorders')}> <img src={assets.bag_icon} alt="" /> <p>Orders</p></li>
+              <li onClick={() => navigate('/myorders')}> <img src={assets.bag_icon} alt="" /> <p>Orders</p></li>
               <hr />
-              <li onClick={logout}> <img src={assets.logout_icon} alt="" /> <p>Logout</p></li> 
+              <li onClick={logout}> <img src={assets.logout_icon} alt="" /> <p>Logout</p></li>
             </ul>
           </div>
         }
